@@ -2,10 +2,13 @@ html,
 body {
   height: 100%;
   margin: 0;
-  background-color: white;
 }
 svg {
   display: block;
+}
+
+#square rect {
+  transition: width 1s;
 }
 
 #button > circle {
@@ -15,4 +18,5 @@ svg {
 
 #button > circle:hover {
   r: 10%;
+  stroke-width: 10;
 }

@@ -19,8 +19,20 @@
         <style>
           @import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
         </style>
+        <clipPath id="square">
+          <rect
+            width="700"
+            height="150"
+            x="calc(50% - 350)"
+            y="calc(50% - 100)"
+            fill="blue"
+          />
+        </clipPath>
       </defs>
+
       <text
+        clip-path="url(#square)"
+        id="h1"
         x="50%"
         y="50%"
         text-anchor="middle"
@@ -30,6 +42,7 @@
       >
         14C.01.05
       </text>
+
       <g id="button">
         <circle
           cx="50%"
@@ -38,6 +51,7 @@
           stroke="#39ff14"
           stroke-width="3"
           fill="black"
+          clip-path
         />
       </g>
     </svg>
