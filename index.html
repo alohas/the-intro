@@ -20,13 +20,10 @@
           @import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
         </style>
         <clipPath id="square">
-          <rect
-            width="700"
-            height="150"
-            x="calc(50% - 350)"
-            y="calc(50% - 100)"
-            fill="blue"
-          />
+          <rect width="100%" height="150" y="calc(50% - 100)" fill="blue" />
+        </clipPath>
+        <clipPath id="circle">
+          <circle r="100" cx="0" cy="50%" />
         </clipPath>
       </defs>
 
@@ -43,6 +40,15 @@
         14C.01.05
       </text>
 
+      <image
+        clip-path="url(#circle)"
+        href="download.jpg"
+        height="30%"
+        width="30%"
+        x="20%"
+        y="30%"
+      />
+
       <g id="button">
         <circle
           cx="50%"
@@ -51,10 +57,12 @@
           stroke="#39ff14"
           stroke-width="3"
           fill="black"
-          clip-path
         />
       </g>
     </svg>
+    <video id="dominykas" height="960" width="496">
+      <source src="Snapchat-1290346986.mp4" type="video/mp4" />
+    </video>
     <script src="script.js"></script>
   </body>
 </html>

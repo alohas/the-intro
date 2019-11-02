@@ -11,12 +11,12 @@ let i = 0;
 let delay = 50;
 document.querySelector("body > svg > text").textContent = "";
 
-document
-  .querySelector("#button > circle")
-  .addEventListener("click", startIntro);
+document.querySelector("#button > circle").addEventListener("click", e => {
+  document.querySelector("#button > circle").style.r = "100%";
+  startIntro();
+});
 
 function startIntro() {
-  document.querySelector("#button > circle").style.r = "100%";
   setTimeout(() => {
     document.querySelector("body").style.backgroundColor = "black";
     document.querySelector("#button > circle").style.display = "none";
@@ -24,17 +24,19 @@ function startIntro() {
     audio.volume = 0.1;
 
     setTimeout(() => {
-      typeName();
+      screenOne();
+      //screenTwo();
+      //screenThree();
     }, 2800);
   }, 800);
 }
 
-function typeName() {
+function screenOne() {
   if (i < assignmentName.length) {
     document.querySelector("body > svg > text").textContent +=
       assignmentName[i];
     i++;
-    setTimeout(typeName, delay + Math.floor(Math.random() * 20));
+    setTimeout(screenOne, delay + Math.floor(Math.random() * 20));
   } else {
     setTimeout(() => {
       deleteText(document.querySelector("body > svg > text").textContent);
@@ -86,14 +88,56 @@ function deleteRealName(input) {
 }
 
 function typeGroupName() {
-  var text = `By GroupName`;
+  var text = `By Broken Joystick`;
   if (i < text.length) {
     document.querySelector("body > svg > text").textContent += text[i];
     i++;
     setTimeout(typeGroupName, delay + Math.floor(Math.random() * 20));
   } else {
     setTimeout(() => {
-      document.querySelector("#square > rect").width.baseVal.value = 0;
+      maskLogo();
     }, 2000);
   }
+}
+
+function maskLogo() {
+  document.querySelector("#square > rect").width.baseVal.value = 0;
+  setTimeout(() => {
+    document.querySelector("body > svg > text").style.display = "none";
+    screenTwo();
+  }, 1000);
+}
+
+function screenTwo() {
+  document.querySelector("#circle > circle").setAttribute("cx", "50%");
+  setTimeout(() => {
+    document.querySelector("#circle > circle").style.transition = "r 0.8s";
+    setTimeout(() => {
+      document.querySelector("#circle > circle").setAttribute("r", "100%");
+      setTimeout(() => {
+        document.querySelector("body > svg > image").style.opacity = "0";
+        setTimeout(() => {
+          screenThree();
+        }, 2300);
+      }, 2000);
+    }, 500);
+  }, 900);
+}
+
+function screenThree() {
+  document.querySelector("body > svg > image").style.display = "none";
+  document.querySelector("#dominykas").style.display = "block";
+  document.querySelector("#dominykas").play();
+  document.querySelector("#dominykas").loop = true;
+  document.querySelector("#dominykas").volume = 0;
+  document.querySelector("#dominykas").style.animation = "wow 10s 1";
+}
+
+document
+  .querySelector("#dominykas")
+  .addEventListener("animationend", screenfour);
+
+function screenFour() {
+  document.querySelector("#dominykas").pause();
+  document.querySelector("#dominykas").style.display = "none";
 }

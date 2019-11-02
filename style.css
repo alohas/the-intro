@@ -2,7 +2,9 @@ html,
 body {
   height: 100%;
   margin: 0;
+  overflow: hidden;
 }
+
 svg {
   display: block;
 }
@@ -16,7 +18,49 @@ svg {
   cursor: pointer;
 }
 
+#circle > circle {
+  transition: cx 0.8s;
+}
+
+body > svg > image {
+  transition: opacity 2s;
+}
+
 #button > circle:hover {
   r: 10%;
   stroke-width: 10;
+}
+video#dominykas {
+  position: absolute;
+  top: 0%;
+  left: -60%;
+  display: none;
+  clip-path: polygon(
+    33% 11%,
+    0% 20%,
+    30% 50%,
+    0% 80%,
+    25% 84%,
+    50% 70%,
+    74% 81%,
+    100% 80%,
+    70% 50%,
+    100% 20%,
+    68% 6%,
+    50% 30%
+  );
+}
+
+@keyframes wow {
+  0% {
+    left: -60%;
+  }
+  75% {
+    top: 10%;
+    left: 25%;
+  }
+
+  100% {
+    left: 110%;
+  }
 }
