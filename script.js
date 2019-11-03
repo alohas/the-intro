@@ -115,29 +115,49 @@ function screenTwo() {
     setTimeout(() => {
       document.querySelector("#circle > circle").setAttribute("r", "100%");
       setTimeout(() => {
-        document.querySelector("body > svg > image").style.opacity = "0";
+        document.querySelector("body > svg > foreignObject").style.opacity =
+          "0";
         setTimeout(() => {
           screenThree();
-        }, 2300);
-      }, 2000);
+        }, 1000);
+      }, 6000);
     }, 500);
   }, 900);
 }
 
 function screenThree() {
-  document.querySelector("body > svg > image").style.display = "none";
-  document.querySelector("#dominykas").style.display = "block";
-  document.querySelector("#dominykas").play();
-  document.querySelector("#dominykas").loop = true;
-  document.querySelector("#dominykas").volume = 0;
-  document.querySelector("#dominykas").style.animation = "wow 10s 1";
+  document.querySelector("body > svg > text").textContent = "Dominykas";
+  document.querySelector("body > svg > text").style.display = "block";
+  document.querySelector("#square > rect").setAttribute("width", "100%");
+  setTimeout(() => {
+    document.querySelector("#square > rect").setAttribute("width", "0");
+    document.querySelector("body > svg > foreignObject").style.display = "none";
+    document.querySelector("#dominykas").style.display = "block";
+    document.querySelector("#dominykas").play();
+    document.querySelector("#dominykas").loop = true;
+    document.querySelector("#dominykas").volume = 0;
+    document.querySelector("#dominykas").style.animation = "wow 5s 1";
+  }, 2000);
 }
 
 document
   .querySelector("#dominykas")
-  .addEventListener("animationend", screenfour);
+  .addEventListener("animationend", screenFour);
 
 function screenFour() {
   document.querySelector("#dominykas").pause();
   document.querySelector("#dominykas").style.display = "none";
+  document.querySelector("body > svg > image").style.opacity = 100;
+  setTimeout(() => {
+    document.querySelector("#just-wow > rect").style.transition = "height 1s";
+    document.querySelector("#just-wow > rect").setAttribute("height", "200");
+    setTimeout(() => {
+      document.querySelector("#just-wow > rect").style.transition = "x 1s";
+      document.querySelector("#just-wow > rect").setAttribute("x", "800");
+      setTimeout(() => {
+        document.querySelector("#just-wow > rect").style.transition = "y 1s";
+        document.querySelector("#just-wow > rect").setAttribute("y", "300");
+      }, 1200);
+    }, 1200);
+  }, 2000);
 }

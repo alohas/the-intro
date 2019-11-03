@@ -9,6 +9,20 @@ svg {
   display: block;
 }
 
+.logo {
+  display: block;
+  height: 500px;
+  width: 540px;
+  background-image: url("logo.png");
+  animation: idle 1s infinite steps(6);
+}
+
+@keyframes idle {
+  to {
+    background-position: 3236px;
+  }
+}
+
 #square rect {
   transition: width 1s;
 }
@@ -19,10 +33,10 @@ svg {
 }
 
 #circle > circle {
-  transition: cx 0.8s;
+  transition: cx 2s;
 }
 
-body > svg > image {
+body > svg > foreignObject {
   transition: opacity 2s;
 }
 
@@ -49,6 +63,10 @@ video#dominykas {
     68% 6%,
     50% 30%
   );
+}
+
+body > svg > image {
+  transition: opacity 1s;
 }
 
 @keyframes wow {
