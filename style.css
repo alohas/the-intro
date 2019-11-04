@@ -11,15 +11,36 @@ svg {
 
 .logo {
   display: block;
-  height: 500px;
-  width: 540px;
+  height: 544px;
+  width: 544px;
   background-image: url("logo.png");
   animation: idle 1s infinite steps(6);
 }
 
+.domis {
+  display: block;
+  height: 544px;
+  width: 544px;
+  background-image: url("sprite.png");
+  animation: idleto 1s infinite steps(2);
+}
+
+.agne {
+  display: block;
+  height: 544px;
+  width: 544px;
+  background-image: url("newspr.png");
+  animation: idleto 1s infinite steps(2);
+}
+@keyframes idleto {
+  to {
+    background-position: 1088px;
+  }
+}
+
 @keyframes idle {
   to {
-    background-position: 3236px;
+    background-position: 3264px;
   }
 }
 
@@ -45,6 +66,27 @@ body > svg > foreignObject {
   stroke-width: 10;
 }
 video#dominykas {
+  position: absolute;
+  top: 0%;
+  left: -60%;
+  display: none;
+  clip-path: polygon(
+    33% 11%,
+    0% 20%,
+    30% 50%,
+    0% 80%,
+    25% 84%,
+    50% 70%,
+    74% 81%,
+    100% 80%,
+    70% 50%,
+    100% 20%,
+    68% 6%,
+    50% 30%
+  );
+}
+
+video#agne {
   position: absolute;
   top: 0%;
   left: -60%;

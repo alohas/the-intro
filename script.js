@@ -41,6 +41,8 @@ function screenOne() {
     setTimeout(() => {
       deleteText(document.querySelector("body > svg > text").textContent);
     }, 2000);
+    document.querySelector("#dom").style.opacity = 0;
+    document.querySelector("#agn").style.opacity = 0;
   }
 }
 
@@ -60,7 +62,7 @@ function deleteText(input) {
 }
 
 function typeRealName() {
-  var text = `"The Intro"`;
+  var text = '"The Intro"';
   if (i < text.length) {
     document.querySelector("body > svg > text").textContent += text[i];
     i++;
@@ -88,7 +90,7 @@ function deleteRealName(input) {
 }
 
 function typeGroupName() {
-  var text = `By Broken Joystick`;
+  var text = "By Broken Joystick";
   if (i < text.length) {
     document.querySelector("body > svg > text").textContent += text[i];
     i++;
@@ -160,4 +162,38 @@ function screenFour() {
       }, 1200);
     }, 1200);
   }, 2000);
+  setTimeout(screenFive, 6000);
+}
+
+function screenFive() {
+  document.querySelector("body > svg > image").style.opacity = 0;
+  document.querySelector("#just-wow > rect").style.display = "none";
+  document.querySelector("body > svg > text").textContent = "Agne";
+  document.querySelector("body > svg > text").style.display = "block";
+  document.querySelector("#square > rect").setAttribute("width", "100%");
+  setTimeout(() => {
+    document.querySelector("#square > rect").setAttribute("width", "0");
+    document.querySelector("body > svg > foreignObject").style.display = "none";
+    document.querySelector("#agne").style.display = "block";
+    document.querySelector("#agne").play();
+    document.querySelector("#agne").loop = true;
+    document.querySelector("#agne").volume = 0;
+    document.querySelector("#agne").style.animation = "wow 5s 1";
+  }, 2000);
+}
+document.querySelector("#agne").addEventListener("animationend", screenSix);
+
+function screenSix() {
+  document.querySelector("#dom").style.opacity = 100;
+  document.querySelector("#agn").style.opacity = 100;
+  document.querySelector("body > svg > text").textContent = "The End";
+  document.querySelector("body > svg > text").style.display = "block";
+  document.querySelector("#square > rect").setAttribute("width", "100%");
+  document.querySelector("#circle > circle").setAttribute("cx", "50%");
+  setTimeout(() => {
+    document.querySelector("#circle > circle").style.transition = "r 0.8s";
+    setTimeout(() => {
+      document.querySelector("#circle > circle").setAttribute("r", "100%");
+    }, 500);
+  }, 900);
 }
